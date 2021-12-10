@@ -2,10 +2,10 @@ from collections import defaultdict
 
 with open('input10', 'r') as f:
     lst = f.read().split('\n')
+
 d = defaultdict(int)
 link = {']': '[', '>': '<', ')': '(', '}': '{'}
-link_val = {']': 57, '>': 25137, ')': 3, '}': 1197}
-link_val_in = {'[': 2, '<': 4, '(': 1, '{': 3}
+link_val = {']': 57, '>': 25137, ')': 3, '}': 1197, '[': 2, '<': 4, '(': 1, '{': 3}
 
 total_score_lst = []
 for s in lst:
@@ -22,9 +22,8 @@ for s in lst:
             break
     total = 0
     if is_incomplete_line:
-        for pair in reversed(stack):
-            total *= 5
-            total += link_val_in[pair]
+        while stack:
+            total = total * 5 + link_val[stack.pop()]
         total_score_lst += [total]
 total_score_lst.sort()
 
