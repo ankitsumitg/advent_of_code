@@ -3,10 +3,10 @@ import math
 with open('input9', 'r') as f:
     lst = []
     for x in f.read().split('\n'):
-        lst += [[10] + list(map(int, [i for i in x])) + [10]]
-# Construct wall of 10 around the block
-lst.insert(0, [10] * len(lst[0]))
-lst.append([10] * len(lst[0]))
+        lst += [[9] + list(map(int, [i for i in x])) + [9]]
+# Construct wall of 9 around the block
+lst.insert(0, [9] * len(lst[0]))
+lst.append([9] * len(lst[0]))
 
 risk_level = 0
 basin = []
@@ -14,7 +14,7 @@ vis = [[False] * len(lst[0]) for _ in range(len(lst))]
 
 
 def find_basin(x, y):
-    if lst[x][y] >= 9 or vis[x][y]:
+    if lst[x][y] == 9 or vis[x][y]:
         return 0
     ans = 1
     vis[x][y] = True
