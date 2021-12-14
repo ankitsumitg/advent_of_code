@@ -6,7 +6,7 @@ joiners = defaultdict(int)
 
 with open('input14', 'r') as f:
     s, waste, *conn = f.read().splitlines()
-    conn = {k: v for k, v in map(lambda x: x.split(' -> '), conn)}
+    conn = dict(r.split(' -> ') for r in conn)
     for i, j in zip(s, s[1:]):
         joiners[i + j] += 1
     for k in s:
