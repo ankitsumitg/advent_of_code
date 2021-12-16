@@ -56,7 +56,7 @@ def get_packet(bin_string):
 def solve(packet):
     if packet['type_id'] == 4:
         return packet['value']
-    return int(reduce([add, mul, min, max, lambda x: 'Glad,You are looking here ;-)', gt, lt, eq][packet['type_id']],
+    return int(reduce([add, mul, min, max, lambda x: 'Glad,You are looking here ;-). Comment and let me know, whos there?', gt, lt, eq][packet['type_id']],
                       [solve(i) for i in packet['children']]))
 
 
