@@ -29,7 +29,7 @@ def find_sub_packets(bin_string, packet, identifier):
             packet["children"].append(sub_packet)
             packet['version_sum'] += sub_packet['version_sum']
     else:
-        total_sub_packets = int(bin_string[0:11], 2)
+        total_sub_packets = int(bin_string[:11], 2)
         rem = bin_string[11:]
         for _ in range(total_sub_packets):
             sub_packet, rem = get_packet(rem)
